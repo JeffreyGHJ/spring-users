@@ -1,0 +1,48 @@
+.body-dark {
+	background-color: #212121;
+}
+
+.body-color-white {
+	color: white;
+}
+
+.login-box-clamp {
+	min-width: 200px;
+	max-width: 450px;
+}
+
+.panel-default > .panel-heading {
+	background-color: #474747;
+	border-bottom: 0px;
+}
+
+.panel-default > .panel-body {
+	background-color: #696969;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.panel-default > .panel-heading > .panel-title {
+	color: white;
+}
+
+.mainbox > .panel {
+	border: 3px solid white;
+}
+
+.form-group > .col-sm-6 {
+	width: 100%;
+}
+
+.btn-float-right {
+	float: right;
+}
+
+.user-info-block-inline {
+	border: 1px solid white; 
+	border-radius: 4px; 
+	padding: 2px; 
+	padding-left: 2px; 
+	padding-right: 2px;
+	margin-right: 4px;
+}
