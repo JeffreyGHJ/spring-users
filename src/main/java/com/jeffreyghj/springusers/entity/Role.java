@@ -21,10 +21,23 @@ public class Role {
     
     @ManyToMany(mappedBy = "roles")
     private Collection<User> users;
-    
-    public Role() {
+
+	public Role() {
     	
     }
+	
+	public Role(String name) {
+		this.name = name;
+	}
+	
+	public Role(Long id) {
+		this.id = id;
+	}
+	
+	public Role(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;

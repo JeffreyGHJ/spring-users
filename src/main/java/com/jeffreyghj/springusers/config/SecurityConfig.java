@@ -3,6 +3,7 @@ package com.jeffreyghj.springusers.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,13 +17,23 @@ import com.jeffreyghj.springusers.service.MyUserDetailsService;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	private MyUserDetailsService userDetailsService;
+	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Autowired
-	private MyUserDetailsService userDetailsService;
+	// AuthenticationProvider needed for granting roles/authorities
+	@Bean
+	public DaoAuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+		authProvider.setUserDetailsService(userDetailsService);
+		authProvider.setPasswordEncoder(passwordEncoder());
+		
+		return authProvider;
+	}
 	
 	/*
 	@Bean
@@ -36,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	*/
 	
+	
 	@Override
 	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
 		
@@ -46,8 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.withUser("premium").password(passwordEncoder().encode("paid")).roles("PREMIUM");
 		
-		auth.userDetailsService(userDetailsService);
-		
+		auth.authenticationProvider(authenticationProvider());
 	}
 	
 	@Override

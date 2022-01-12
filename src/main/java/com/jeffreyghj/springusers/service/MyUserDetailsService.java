@@ -1,7 +1,8 @@
 package com.jeffreyghj.springusers.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +20,8 @@ import com.jeffreyghj.springusers.entity.User;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
+	// I think this class is finished - if I'm adding something here it may be a mistake
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -31,22 +34,8 @@ public class MyUserDetailsService implements UserDetailsService {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
 		
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-					mapRolesToAuthorities(user.getRoles()));
-					//getAuthorities(user.getRoles()));
+		user.getRoles().size();
+		
+		return new MyUserDetails(user);
 	}
-	
-	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-	}
-	/*
-	private static List<GrantedAuthority> getAuthorities (Collection<Role> roles) {
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (String role : roles) {
-			authorities.add(new SimpleGrantedAuthority(role));
-		}
-		return authorities;
-	}
-	*/
-
 }
