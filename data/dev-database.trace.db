@@ -1,6 +1,0 @@
-2022-01-12 17:30:37 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM ROLE"; expected "identifier"; SQL statement:
-DELETE * FROM ROLE [42001-200]
-2022-01-12 17:30:47 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE ALL[*] FROM ROLE"; expected "identifier"; SQL statement:
-DELETE ALL FROM ROLE [42001-200]
