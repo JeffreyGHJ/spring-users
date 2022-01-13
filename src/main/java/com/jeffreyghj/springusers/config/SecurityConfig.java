@@ -74,9 +74,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			//.antMatchers("/users/list").permitAll();
 		*/
 		
+		/*
 		http.requiresChannel()
 			.requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
 			.requiresSecure();
+		*/
+		
+		http.headers().frameOptions().sameOrigin();
 		
 		http
 			.csrf().disable()
