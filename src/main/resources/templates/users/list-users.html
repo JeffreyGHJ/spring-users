@@ -25,6 +25,7 @@
 <body class="body-dark body-color-white">
 
 <div class="container">
+	<br>
 	<h3>Registered Users</h3>
 	<hr>
 	
@@ -42,8 +43,6 @@
 		<input type="submit" value="Logout" class="btn btn-outline-primary mb-2 btn-float-right" />
 	
 	</form>
-
-	
 	
 	<!-- "Add User" Button -->
 	
@@ -55,7 +54,8 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
-				<th>Action</th>
+				<th>Username</th>
+				<th sec:authorize="hasAuthority('ROLE_ADMIN')">Action</th>
 			</tr>
 		</thead>
 	
@@ -66,9 +66,11 @@
 				<td th:text="${tempUser.firstName}" />
 				<td th:text="${tempUser.lastName}" />
 				<td th:text="${tempUser.email}" />
+				<td th:text="${tempUser.username}" />
 				
 				<!-- Actions -->
-				<td>
+				
+				<td sec:authorize="hasAuthority('ROLE_ADMIN')">
 					<!-- "Update" Button -->
 					<a th:href="@{/users/showFormForUpdate(userId=${tempUser.id})}"
 						class="btn btn-info btn-sm">
@@ -81,9 +83,8 @@
 						onclick="if ( !(confirm('Delete user?')) ) return false">
 						Delete	
 					</a>
-					
 				</td>
-			
+
 			</tr>
 			
 		</tbody>
