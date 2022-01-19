@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
 	<title>Home</title>
@@ -26,6 +27,35 @@
 	<hr>
 	
 	<!-- TO-DO: User Profile Card -->
+	<div class="user-profile-card">
+	
+		<!-- user profile image -->
+		<div class="user-avatar bordered">
+			<i class="glyphicon glyphicon-user"></i>
+		</div>
+		
+		<!-- user profile data -->
+		<div sec:authorize="!hasAuthority('ROLE_ADMIN')" class="user-profile-data bordered">
+			<table>
+				<tbody>
+					<tr>
+						<td class="user-data-row-1">First Name:</td><td sec:authentication="principal.firstName" />
+					</tr>
+					<tr>
+						<td class="user-data-row-1">Last Name:</td><td sec:authentication="principal.lastName" />
+					</tr>
+					<tr>
+						<td class="user-data-row-1">Email:</td><td sec:authentication="principal.email" />
+					</tr>
+					<tr>
+						<td class="user-data-row-1">Username:</td><td sec:authentication="principal.username" />
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	
+	</div>
+	<hr>
 	
 	<div>
 		<h3>Site Links:</h3>

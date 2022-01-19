@@ -46,3 +46,31 @@
 	padding-right: 2px;
 	margin-right: 4px;
 }
+
+.user-profile-card {
+	display: flex;
+	flex-direction: row;
+}
+
+.user-profile-data {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 1rem;
+}
+
+.user-avatar {
+	width: 9rem;
+	height: 10.7rem;
+	font-size: 8.4rem;
+	margin-right: 1rem;
+}
+
+.bordered {
+	border: 3px solid white;
+	border-radius: 4px;
+}
+
+.user-data-row-1 {
+	width: 9rem;
+}
