@@ -1,12 +1,15 @@
 package com.jeffreyghj.springusers.dto;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.jeffreyghj.springusers.validation.UniqueEmail;
 import com.jeffreyghj.springusers.validation.ValidPassword;
+
+
+// This DTO is required during user creation - the user entity only has columns for password but not confirm password etc...
 
 @ValidPassword(
 		password = "password",
@@ -29,6 +32,7 @@ public class UserDto {
 	@NotNull(message="Required")
 	@NotEmpty(message="Required, must not be empty")
 	@NotBlank(message="Required, must not be blank")
+	@UniqueEmail(message="Email already registered")
 	private String email;
 	
 	@NotNull(message="Required")

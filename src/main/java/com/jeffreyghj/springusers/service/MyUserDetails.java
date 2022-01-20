@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.jeffreyghj.springusers.entity.Role;
 import com.jeffreyghj.springusers.entity.User;
 
+// This class is used to extract data about a user once you have a reference to a user object
 public class MyUserDetails implements UserDetails {
 
 	private User user;

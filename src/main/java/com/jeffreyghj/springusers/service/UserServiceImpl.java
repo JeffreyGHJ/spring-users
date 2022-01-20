@@ -71,12 +71,18 @@ public class UserServiceImpl implements UserService {
 		
 		user.setFirstName(userDto.getFirstName());
 		user.setLastName(userDto.getLastName());
-		user.setEmail(userDto.getEmail());
+		user.setEmail(userDto.getEmail().toLowerCase());
 		user.setUsername(userDto.getUsername());
 		user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 		user.setRoles(Arrays.asList(roleRepository.findRoleByName("USER")));
 		
 		return userRepository.save(user);
+	}
+	
+	@Override
+	public boolean emailExists( String email ) {				
+		Optional<User> result = userRepository.findByEmail( email.toLowerCase() );
+		return result.isPresent();
 	}
 	
 	//FOR LOGGIN IN - MAYBE FACTOR OUT INTO UserDetailsService.java
