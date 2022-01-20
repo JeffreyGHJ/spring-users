@@ -1,28 +1,46 @@
 package com.jeffreyghj.springusers.dto;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import com.jeffreyghj.springusers.validation.ValidPassword;
+
+@ValidPassword(
+		password = "password",
+		confirmPass = "confirmPassword",
+		message="Passwords must match")
 public class UserDto {
 
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Required")
+	@NotEmpty(message="Required, must not be empty")
+	@NotBlank(message="Required, must not be blank")
+	@Size(min=1, message="First Name must be at least 1 character long")
 	private String firstName;
 	
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Required")
+	@NotEmpty(message="Required, must not be empty")
+	@NotBlank(message="Required, must not be blank")
+	@Size(min=1, message="last Name must be at least 1 character long")
 	private String lastName;
 	
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Required")
+	@NotEmpty(message="Required, must not be empty")
+	@NotBlank(message="Required, must not be blank")
 	private String email;
 	
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Required")
+	@NotEmpty(message="Required, must not be empty")
+	@NotBlank(message="Required, must not be blank")
+	@Size(min=3, message="Username must be at least 3 characters long")
 	private String username;
 	
-	@NotNull
-	@NotEmpty
+	@NotNull(message="Required")
+	@NotEmpty(message="Required, must not be empty")
+	@NotBlank(message="Required, must not be blank")
+	@Size(min=4, message="Password must be at least 4 characters long")
 	private String password;
 	private String confirmPassword;
 	
