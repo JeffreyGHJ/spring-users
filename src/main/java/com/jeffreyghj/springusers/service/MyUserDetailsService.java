@@ -17,6 +17,7 @@ import com.jeffreyghj.springusers.dao.UserRepository;
 import com.jeffreyghj.springusers.entity.Role;
 import com.jeffreyghj.springusers.entity.User;
 
+// This service gives us a UserDetails object that represents the User - we find them based on their unique email
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
