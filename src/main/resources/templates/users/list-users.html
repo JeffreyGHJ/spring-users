@@ -25,24 +25,31 @@
 <body class="body-dark body-color-white">
 
 <div class="container">
-	<br>
-	<h3>Registered Users</h3>
+
+	<!-- Top Bar -->
+	<div class="top-bar">
+		<div>
+			<h2>Registered Users</h2>
+		</div>
+		
+		<!-- Logout Button -->
+		<form action="#" th:action="@{/logout}" 
+				   method="POST">
+			<input type="submit" value="Logout" class="btn btn-outline-primary mb-2" />
+		</form>
+	</div>
 	<hr>
 	
-	<!-- Top Bar -->	
-	<!-- Logout Button -->
-	<form action="#" th:action="@{/logout}" 
-			   method="POST">
-		<!-- User Info -->
-		<span class="user-info-block-inline">
-			User: <span sec:authentication="name"></span>
-		</span>
-		<span class="user-info-block-inline">
-			Role(s): <span sec:authentication="principal.authorities"></span>
-		</span>
-		<input type="submit" value="Logout" class="btn btn-outline-primary mb-2 btn-float-right" />
-	
-	</form>
+	<!-- User Info -->
+	<div>
+	<span class="user-info-block-inline">
+		User: <span sec:authentication="name"></span>
+	</span>
+	<span class="user-info-block-inline">
+		Role(s): <span sec:authentication="principal.authorities"></span>
+	</span>
+	<br><br>
+
 	
 	<!-- "Add User" Button -->
 	
