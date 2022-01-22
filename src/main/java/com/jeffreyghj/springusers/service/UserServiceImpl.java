@@ -81,8 +81,15 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public boolean emailExists( String email ) {				
-		Optional<User> result = userRepository.findByEmail( email.toLowerCase() );
-		return result.isPresent();
+		User user = userRepository.findByEmail( email.toLowerCase() );
+		
+		if ( user == null ) {
+			System.out.println( getClass() + " -- email not found");
+		} else {
+			System.out.println( getClass() + " -- user found by email: " + email );
+		}
+		
+		return user != null;
 	}
 	
 	//FOR LOGGIN IN - MAYBE FACTOR OUT INTO UserDetailsService.java

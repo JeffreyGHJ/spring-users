@@ -1,12 +1,8 @@
 package com.jeffreyghj.springusers.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jeffreyghj.springusers.dao.UserRepository;
-import com.jeffreyghj.springusers.entity.Role;
 import com.jeffreyghj.springusers.entity.User;
 
 // This service gives us a UserDetails object that represents the User - we find them based on their unique email
@@ -28,15 +23,15 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(username);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = userRepository.findByEmail( email );
 		
-		if (user == null) {
-			throw new UsernameNotFoundException("Invalid username or password.");
+		if ( user == null ) {
+			throw new UsernameNotFoundException("Invalid email or password.");
 		}
 		
-		user.getRoles().size();
+		user.getRoles().size(); // Trick to initialize the roles here to avoid LazyInitializationException
 		
-		return new MyUserDetails(user);
+		return new MyUserDetails( user );
 	}
 }

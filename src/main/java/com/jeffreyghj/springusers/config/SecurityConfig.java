@@ -101,6 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage") // @GetMapping for this found in LoginController.java
+				.usernameParameter("email")
 				.loginProcessingUrl("/authenticateUser")
 				.permitAll()
 			.and()

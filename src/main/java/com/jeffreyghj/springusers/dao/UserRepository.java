@@ -12,6 +12,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	//Add a sorting method
 	public List<User> findAllByOrderByLastNameAsc();	// Method behavior defined by method name
 	public User findByUsername(String username);
-	public Optional<User> findByEmail(String email);
+	//public Optional<User> findByEmail(String email);
+	public User findByEmail (String email);
 	
 }
