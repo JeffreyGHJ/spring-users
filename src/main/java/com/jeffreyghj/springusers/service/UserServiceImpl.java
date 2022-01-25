@@ -92,27 +92,4 @@ public class UserServiceImpl implements UserService {
 		return user != null;
 	}
 	
-	//FOR LOGGIN IN - MAYBE FACTOR OUT INTO UserDetailsService.java
-	// MOVED TO MyUserDetailsService.java
-	/*
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(userName);
-		
-		if (user == null) {
-			throw new UsernameNotFoundException("Invalid username or password.");
-		}
-		
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), 
-					getAuthorities(user.getRoles()));
-	}
-	
-	private static List<GrantedAuthority> getAuthorities (List<String> roles) {
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (String role : roles) {
-			authorities.add(new SimpleGrantedAuthority(role));
-		}
-		return authorities;
-	}
-	*/
-	
 }
