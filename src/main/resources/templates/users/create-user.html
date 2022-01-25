@@ -28,24 +28,37 @@
 		
 		<form action="#" th:action="@{/users/createNewUser}" th:object="${user}" method="POST">
 		
-			<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" placeholder="First Name">
-			<div class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+			<div class="input-with-error">
+				<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4 input-field-clamp" placeholder="First Name">
+				<div class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+			</div>
 			<br>
-			<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" placeholder="Last Name">
-			<div class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+			<div class="input-with-error">
+				<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4 input-field-clamp" placeholder="Last Name">
+				<div class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+			</div>
 			<br>
-			<input type="text" th:field="*{email}" class="form-control mb-4 col-4" placeholder="Email">
-			<div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+			<div class="input-with-error">
+				<input type="text" th:field="*{email}" class="form-control mb-4 col-4 input-field-clamp" placeholder="Email">
+				<div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+			</div>
 			<br>
-			<input type="text" th:field="*{username}" class="form-control mb-4 col-4" placeholder="Username">
-			<div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+			<div class="input-with-error">
+				<input type="text" th:field="*{username}" class="form-control mb-4 col-4 input-field-clamp" placeholder="Username">
+				<div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+			</div>
 			<br>
-			<input type="text" th:field="*{password}" class="form-control mb-4 col-4" placeholder="Password">
-			<div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+			<div class="input-with-error">
+				<input type="text" th:field="*{password}" class="form-control mb-4 col-4 input-field-clamp" placeholder="Password">
+				<div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+			</div>
 			<br>
-			<input type="text" th:field="*{confirmPassword}" class="form-control mb-4 col-4" placeholder="Confirm Password">
-			<div class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+			<div class="input-with-error">
+				<input type="text" th:field="*{confirmPassword}" class="form-control mb-4 col-4 input-field-clamp" placeholder="Confirm Password">
+				<div class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+			</div>
 			<br>
+			
 			<button type="submit" class="btn btn-info col-2">Create</button>
 			<br>	
 		</form>

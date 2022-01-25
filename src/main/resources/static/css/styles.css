@@ -85,3 +85,16 @@
 	align-items: center;
 	padding-top: 1rem;
 }
+
+.input-field-clamp {
+	max-width: 40rem;
+	min-width: 24rem;
+	width: 45%;
+	margin-right: 1rem;
+}
+
+.input-with-error {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
