@@ -110,5 +110,11 @@ public class UserDto {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+
+	@Override
+	public String toString() {
+		return "UserDto [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", username="
+				+ username + "]";
+	}
 	
 }

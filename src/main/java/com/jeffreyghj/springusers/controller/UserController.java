@@ -51,37 +51,30 @@ public class UserController {
 		User theUser = userService.findById(theId);
 		
 		if ( theUser != null ) {
-			System.out.println(getClass() + "-- found: " + theUser.getUsername() + "; by Id: " + theId);
+			System.out.println(getClass() + "-- found: " + theUser.toString());
 		}
 		
 		UpdateUserDto updateUserDto = new UpdateUserDto();
 		updateUserDto.setId(theId);
+		updateUserDto.setFirstName(theUser.getFirstName());
+		updateUserDto.setLastName(theUser.getLastName());
+		updateUserDto.setUsername(theUser.getUsername());
 		
-		System.out.println("User dto id: " + updateUserDto.getId());
-
-		
-		theModel.addAttribute("user", theUser);
 		theModel.addAttribute("updateUserDto", updateUserDto);
-		
 		return "users/update-user";
 	}
 	
 	@PostMapping("/updateUser")
-	public String updateUser(@Valid @ModelAttribute("updateUserDto") UpdateUserDto updateUserDto, 
+	public String updateUser(@Valid @ModelAttribute("updateUserDto") UpdateUserDto updateUserDto,
 									BindingResult result) {
-		
-		System.out.println(getClass() + " executing...");
-		System.out.println("User dto: " + updateUserDto.getId() + updateUserDto.getFirstName() + updateUserDto.getLastName() + updateUserDto.getUsername());
-		
 		// Check for error
 		if( result.hasErrors() ) {
 			return "users/update-user";
 		} else {
 			// Apply updates to user
 			userService.updateUser(updateUserDto);
-			return "users/confirm-create-user";
+			return "users/confirm-update-user";
 		}
-
 	} 
 	
 	/*

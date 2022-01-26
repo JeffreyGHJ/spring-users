@@ -72,4 +72,10 @@ public class UpdateUserDto {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "UpdateUserDto [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", id="
+				+ id + "]";
+	}
+
 }

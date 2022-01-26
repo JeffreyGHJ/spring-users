@@ -24,7 +24,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail( email );
+		User user = userRepository.findByEmail( email.toLowerCase() );
 		
 		if ( user == null ) {
 			throw new UsernameNotFoundException("Invalid email or password.");

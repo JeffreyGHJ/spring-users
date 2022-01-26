@@ -81,10 +81,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User updateUser(UpdateUserDto updateUserDto) {
-		
-		System.out.println("IN SERVICE User dto: " + updateUserDto.getFirstName() + updateUserDto.getLastName() + updateUserDto.getUsername());
-		
+	public User updateUser(UpdateUserDto updateUserDto) {		
 		User user = findById(updateUserDto.getId());
 		user.setFirstName(updateUserDto.getFirstName());
 		user.setLastName(updateUserDto.getLastName());
