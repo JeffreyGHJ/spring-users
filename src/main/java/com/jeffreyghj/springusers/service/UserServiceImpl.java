@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jeffreyghj.springusers.dao.RoleRepository;
 import com.jeffreyghj.springusers.dao.UserRepository;
+import com.jeffreyghj.springusers.dto.UpdateUserDto;
 import com.jeffreyghj.springusers.dto.UserDto;
 import com.jeffreyghj.springusers.entity.User;
 
@@ -76,6 +77,18 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 		user.setRoles(Arrays.asList(roleRepository.findRoleByName("USER")));
 		
+		return userRepository.save(user);
+	}
+	
+	@Override
+	public User updateUser(UpdateUserDto updateUserDto) {
+		
+		System.out.println("IN SERVICE User dto: " + updateUserDto.getFirstName() + updateUserDto.getLastName() + updateUserDto.getUsername());
+		
+		User user = findById(updateUserDto.getId());
+		user.setFirstName(updateUserDto.getFirstName());
+		user.setLastName(updateUserDto.getLastName());
+		user.setUsername(updateUserDto.getUsername());
 		return userRepository.save(user);
 	}
 	

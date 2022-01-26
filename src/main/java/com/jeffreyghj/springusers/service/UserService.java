@@ -2,6 +2,7 @@ package com.jeffreyghj.springusers.service;
 
 import java.util.List;
 
+import com.jeffreyghj.springusers.dto.UpdateUserDto;
 import com.jeffreyghj.springusers.dto.UserDto;
 import com.jeffreyghj.springusers.entity.User;
 
@@ -21,4 +22,5 @@ public interface UserService {
 	public void deleteById(Long theId);
 	
 	public User createNewUser(UserDto userDto);
+	public User updateUser(UpdateUserDto updateUserDto);
 }

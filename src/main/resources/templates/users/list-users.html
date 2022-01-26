@@ -79,7 +79,7 @@
 				
 				<td sec:authorize="hasAuthority('ROLE_ADMIN')">
 					<!-- "Update" Button -->
-					<a th:href="@{/users/showFormForUpdate(userId=${tempUser.id})}"
+					<a th:href="@{/users/showUpdateUserForm(userId=${tempUser.id})}"
 						class="btn btn-info btn-sm">
 						Update
 					</a>
