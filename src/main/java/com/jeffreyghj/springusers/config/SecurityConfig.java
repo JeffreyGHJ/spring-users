@@ -86,6 +86,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/css/**").permitAll()
+			.antMatchers("/").permitAll()
 			.antMatchers("/users/showCreateUserForm").permitAll()
 			//.antMatchers("/users/saveUser").permitAll()	  // Allow admin to easily spoof new users
 			.antMatchers("/users/createNewUser").permitAll()  // Allow anyone to create a new account
@@ -103,6 +104,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/showMyLoginPage") // @GetMapping for this found in LoginController.java
 				.usernameParameter("email")
 				.loginProcessingUrl("/authenticateUser")
+				.defaultSuccessUrl("/home", true)
 				.permitAll()
 			.and()
 			.logout().permitAll()
