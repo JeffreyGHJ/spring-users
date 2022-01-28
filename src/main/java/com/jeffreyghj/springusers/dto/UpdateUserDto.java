@@ -1,27 +1,18 @@
 package com.jeffreyghj.springusers.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class UpdateUserDto {
 	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
-	@Size(min=1, message="First Name must be at least 1 character long")
+
+	@NotBlank(message="Required: must not be blank")
 	private String firstName;
 	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
-	@Size(min=1, message="last Name must be at least 1 character long")
+	@NotBlank(message="Required: must not be blank")
 	private String lastName;
 	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
+	@NotBlank(message="Required: must not be blank")
 	@Size(min=3, message="Username must be at least 3 characters long")
 	private String username;
 	
@@ -30,11 +21,10 @@ public class UpdateUserDto {
 	public UpdateUserDto() {
 		
 	}
-	
-	public UpdateUserDto(
-			@NotNull(message = "Required") @NotEmpty(message = "Required, must not be empty") @NotBlank(message = "Required, must not be blank") @Size(min = 1, message = "First Name must be at least 1 character long") String firstName,
-			@NotNull(message = "Required") @NotEmpty(message = "Required, must not be empty") @NotBlank(message = "Required, must not be blank") @Size(min = 1, message = "last Name must be at least 1 character long") String lastName,
-			@NotNull(message = "Required") @NotEmpty(message = "Required, must not be empty") @NotBlank(message = "Required, must not be blank") @Size(min = 3, message = "Username must be at least 3 characters long") String username) {
+
+	public UpdateUserDto(@NotBlank(message = "Required: must not be blank") String firstName,
+			@NotBlank(message = "Required: must not be blank") String lastName,
+			@NotBlank(message = "Required: must not be blank") @Size(min = 3, message = "Username must be at least 3 characters long") String username) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;

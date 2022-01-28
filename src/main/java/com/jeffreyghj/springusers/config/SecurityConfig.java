@@ -52,11 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
 		
 		auth.inMemoryAuthentication()
-			.withUser("admin").password(passwordEncoder().encode("pass")).roles("ADMIN")
-			.and()
-			.withUser("user1").password(passwordEncoder().encode("pass1")).roles("USER")
-			.and()
-			.withUser("premium").password(passwordEncoder().encode("paid")).roles("PREMIUM");
+			.withUser("admin").password(passwordEncoder().encode("pass")).roles("ADMIN");
+//			.and()
+//			.withUser("user1").password(passwordEncoder().encode("pass1")).roles("USER")
+//			.and()
+//			.withUser("premium").password(passwordEncoder().encode("paid")).roles("PREMIUM");
 		
 		auth.authenticationProvider(authenticationProvider());
 	}

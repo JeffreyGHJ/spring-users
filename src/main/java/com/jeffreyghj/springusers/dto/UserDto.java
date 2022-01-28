@@ -1,8 +1,6 @@
 package com.jeffreyghj.springusers.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.jeffreyghj.springusers.validation.UniqueEmail;
@@ -17,33 +15,22 @@ import com.jeffreyghj.springusers.validation.ValidPassword;
 		message="Passwords must match")
 public class UserDto {
 
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
-	@Size(min=1, message="First Name must be at least 1 character long")
+	@NotBlank(message="Required: must not be blank")
 	private String firstName;
-	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
-	@Size(min=1, message="last Name must be at least 1 character long")
+
+	@NotBlank(message="Required: must not be blank")
 	private String lastName;
 	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
+	@NotBlank(message="Required: must not be blank")
 	@UniqueEmail(message="Email already registered")
 	private String email;
 	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
+
+	@NotBlank(message="Required: must not be blank")
 	@Size(min=3, message="Username must be at least 3 characters long")
 	private String username;
 	
-	@NotNull(message="Required")
-	@NotEmpty(message="Required, must not be empty")
-	@NotBlank(message="Required, must not be blank")
+	@NotBlank(message="Required: must not be blank")
 	@Size(min=4, message="Password must be at least 4 characters long")
 	private String password;
 	private String confirmPassword;
@@ -52,8 +39,8 @@ public class UserDto {
 		
 	}
 
-	public UserDto(@NotNull @NotEmpty String firstName, @NotNull @NotEmpty String lastName,
-			@NotNull @NotEmpty String email, @NotNull @NotEmpty String username, @NotNull @NotEmpty String password,
+	public UserDto(@NotBlank String firstName, @NotBlank String lastName,
+			@NotBlank String email, @NotBlank String username, @NotBlank String password,
 			String confirmPassword) {
 		this.firstName = firstName;
 		this.lastName = lastName;
