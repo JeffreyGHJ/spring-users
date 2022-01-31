@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserService {
 		
 		User user = new User();
 		
+		//user.setId((long)0);
 		user.setFirstName(userDto.getFirstName());
 		user.setLastName(userDto.getLastName());
 		user.setEmail(userDto.getEmail().toLowerCase());
@@ -102,4 +103,8 @@ public class UserServiceImpl implements UserService {
 		return user != null;
 	}
 	
+	public boolean authenticate(User theUser, String pass) {
+		System.out.println("Pass: " + pass);
+		return passwordEncoder.matches(pass, theUser.getPassword());
+	}
 }

@@ -86,6 +86,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/css/**").permitAll()
+			.antMatchers("/api/**").permitAll()
 			.antMatchers("/").permitAll()
 			.antMatchers("/users/showCreateUserForm").permitAll()
 			//.antMatchers("/users/saveUser").permitAll()	  // Allow admin to easily spoof new users

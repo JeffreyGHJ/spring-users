@@ -23,4 +23,5 @@ public interface UserService {
 	
 	public User createNewUser(UserDto userDto);
 	public User updateUser(UpdateUserDto updateUserDto);
+	public boolean authenticate(User theUser, String password);
 }
