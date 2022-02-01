@@ -82,18 +82,61 @@
 	
 	<div>
 		<h3>Site Links:</h3>
-		<br>
-		<a href="/users/list">Fancy User List</a>
-		<br><br>
+		<a href="/users/list"><h4>User List</h4></a>
 		<hr>
 	</div>
 	
 	
 	<div> 
-		<h3>REST endpoints:</h3>
+		<h3 class="mb-0">REST endpoints:</h3>
+<!-- 		<h8>(full C.R.U.D. support)</h8> -->
 		<br>
-		<a href="/users">List Users</a>
-		<br>
+		
+		<div style="padding : 1rem;" class="bordered">
+			<table>
+				<thead>
+					<tr>
+						<th style="text-align: center;">Action</th>
+						<th style="text-align: center;">Method</th>
+						<th style="text-align: center;">URL</th>
+						<th style="text-align: center;">Request Parameters</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td>Create User</td>
+						<td style="text-align: end;"><span class="badge rounded-pill bg-success">POST</span></td>
+						<td><span class="badge rounded-pill bg-warning text-dark">.../api/users</span></td>
+						<td style="text-align: center;"><span class="badge rounded-pill bg-info text-dark">firstName, lastName, email, username, password, confirmPassword</span></td>
+					</tr>
+					<tr>
+						<td>Read Users</td>
+						<td style="text-align: end;"><span class="badge rounded-pill bg-success">GET</span></td>
+						<td><a href="/api/users"><span class="badge rounded-pill bg-warning text-dark">.../api/users</span></a></td>
+						<td style="text-align: center;"><span class="badge rounded-pill bg-info text-dark">[none]</span></td>
+					</tr>
+					<tr>
+						<td>Read User</td>
+						<td style="text-align: end;"><span class="badge rounded-pill bg-success">GET</span></td>
+						<td><span class="badge rounded-pill bg-warning text-dark">.../api/users/{userId}</span></td>
+						<td style="text-align: center;"><span class="badge rounded-pill bg-info text-dark">[none]</span></td>
+					</tr>
+					<tr>
+						<td>Update User</td>
+						<td style="text-align: end;"><span class="badge rounded-pill bg-success">PUT</span></td>
+						<td><span class="badge rounded-pill bg-warning text-dark">.../api/users</span></td>
+						<td style="text-align: center;"><span class="badge rounded-pill bg-info text-dark">id, firstName, lastName, username</span></td>
+					</tr>
+					<tr>
+						<td>Delete User</td>
+						<td style="text-align: end;"><span class="badge rounded-pill bg-success">DELETE</span></td>
+						<td><span class="badge rounded-pill bg-warning text-dark">.../api/users/{userId}</span></td>
+						<td style="text-align: center;"><span class="badge rounded-pill bg-info text-dark">password</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<hr>
 	</div>
 		
